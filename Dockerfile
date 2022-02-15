@@ -20,7 +20,7 @@ COPY --from=requirements-stage /tmp/requirements.txt /app/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r requirements.txt
 
-COPY ./latest_changes /app/latest_changes
+COPY ./auto_changelog /app/auto_changelog
 
 ENV PYTHONPATH=/app
 
