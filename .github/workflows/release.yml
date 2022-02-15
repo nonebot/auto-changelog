@@ -1,0 +1,35 @@
+name: Release
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+          architecture: "x64"
+
+      - uses: Gr1N/setup-poetry@v7
+
+      - run: echo "TAG_NAME=v$(poetry version -s)" >> $GITHUB_ENV
+
+      - uses: nonebot/auto-changelog@master
+        with:
+          archive_title: ${{ env.TAG_NAME }}
+
+      - run: |
+          git tag ${{ env.TAG_NAME }}
+          git push --tags
+
+      - uses: release-drafter/release-drafter@v5
+        with:
+          name: Release ${{ env.TAG_NAME }} 🌈
+          tag: ${{ env.TAG_NAME }}
+          publish: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
