@@ -68,9 +68,12 @@ settings.input_changelog_file.write_text(new_content)
 logging.info(f"Committing changes to: {settings.input_changelog_file}")
 
 subprocess.run(["git", "config", "user.name", "github-actions"], check=True)
-subprocess.run(["git", "config", "user.email", "github-actions@github.com"], check=True)
+subprocess.run(
+    ["git", "config", "user.email", "github-actions@users.noreply.github.com"],
+    check=True,
+)
 subprocess.run(["git", "add", str(settings.input_changelog_file)], check=True)
-subprocess.run(["git", "commit", "-m", ":memo: Update release notes"], check=True)
+subprocess.run(["git", "commit", "-m", ":memo: Update changelog"], check=True)
 logging.info(f"Pushing changes: {settings.input_changelog_file}")
 subprocess.run(["git", "push"], check=True)
 logging.info("Finished")
