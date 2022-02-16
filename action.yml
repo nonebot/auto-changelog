@@ -16,7 +16,7 @@ inputs:
     required: false
   replace_regex:
     description: Replace latest changes body pattern
-    default: '(?<=## Latest Changes\n)[\s\S]*(?=\n## )'
+    default: '(?<=## Latest Changes\n)[\s\S]*?(?=\n## )'
     required: false
   changelog_body:
     description: The changelog body
