@@ -1,5 +1,13 @@
 # Changelog
 
+## Latest Changes
+
+### 💫 Changes
+
+### 🐛 Bug Fixes
+
+- Fix: fix error settings @yanyongyu (#6)
+
 ## v0.1.2
 
 ### 💫 Changes
