@@ -1,6 +1,6 @@
 # Changelog
 
-## Latest Changes
+## v0.1.3
 
 ### 💫 Changes
 
