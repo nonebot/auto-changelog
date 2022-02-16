@@ -4,33 +4,27 @@ description: nonebot auto changelog
 inputs:
   changelog_file:
     description: The changelog file to update
-    default: CHANGELOG.md
     required: false
   latest_changes_position:
     description: The latest changes position in the changelog file
-    default: '# Changelog\n\n'
     required: false
   latest_changes_title:
     description: The latest changes title in the changelog file
-    default: '## Latest Changes'
     required: false
   replace_regex:
     description: Replace latest changes body pattern
-    default: '(?<=## Latest Changes\n)[\s\S]*?(?=\n## )'
     required: false
   changelog_body:
     description: The changelog body
     required: false
   archive_regex:
     description: Archive latest changes pattern
-    default: '(?<=## )Latest Changes(?=\n)'
     required: false
   archive_title:
     description: Archive latest changes title
     required: false
   commit_and_push:
     description: Whether to commit and push changes
-    default: 'true'
     required: false
 
 runs:
