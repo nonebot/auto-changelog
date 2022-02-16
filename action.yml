@@ -28,6 +28,10 @@ inputs:
   archive_title:
     description: Archive latest changes title
     required: false
+  commit_and_push:
+    description: Whether to commit and push changes
+    default: 'true'
+    required: false
 
 runs:
   using: docker
