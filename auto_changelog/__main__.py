@@ -16,6 +16,7 @@ class Settings(BaseSettings):
     input_changelog_body: Optional[str] = None
     input_archive_regex: str = r"(?<=## )Latest Changes(?=\n)"
     input_archive_title: Optional[str] = None
+    input_commit_and_push: bool = True
 
 
 logging.basicConfig(level=logging.INFO)
@@ -65,15 +66,18 @@ else:
     sys.exit(1)
 
 settings.input_changelog_file.write_text(new_content)
-logging.info(f"Committing changes to: {settings.input_changelog_file}")
 
-subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
-subprocess.run(
-    ["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"],
-    check=True,
-)
-subprocess.run(["git", "add", str(settings.input_changelog_file)], check=True)
-subprocess.run(["git", "commit", "-m", ":memo: Update changelog"], check=True)
-logging.info(f"Pushing changes: {settings.input_changelog_file}")
-subprocess.run(["git", "push"], check=True)
+if settings.input_commit_and_push:
+    logging.info(f"Committing changes to: {settings.input_changelog_file}")
+
+    subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
+    subprocess.run(
+        ["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"],
+        check=True,
+    )
+    subprocess.run(["git", "add", str(settings.input_changelog_file)], check=True)
+    subprocess.run(["git", "commit", "-m", ":memo: Update changelog"], check=True)
+    logging.info(f"Pushing changes: {settings.input_changelog_file}")
+    subprocess.run(["git", "push"], check=True)
+
 logging.info("Finished")
