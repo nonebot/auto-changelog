@@ -6,15 +6,9 @@
 
 - CI: update ci commit user @yanyongyu (#3)
 
-## v0.1.0
-
-### 💫 Changes
-
-- CI: add release drafter config file @yanyongyu (#2)
-
 ### 🐛 Bug Fixes
 
-- CI: fix dockerfile error @yanyongyu (#1)
+- Fix: default settings error @yanyongyu (#4)
 
 ## v0.0.0
 
