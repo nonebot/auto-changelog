@@ -1,5 +1,11 @@
 # Changelog
 
+## Latest Changes
+
+### 💫 Changes
+
+- CI: update ci commit user @yanyongyu (#3)
+
 ## v0.1.0
 
 ### 💫 Changes
