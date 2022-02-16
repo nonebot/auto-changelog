@@ -67,9 +67,9 @@ else:
 settings.input_changelog_file.write_text(new_content)
 logging.info(f"Committing changes to: {settings.input_changelog_file}")
 
-subprocess.run(["git", "config", "user.name", "github-actions"], check=True)
+subprocess.run(["git", "config", "user.name", "github-actions[bot]"], check=True)
 subprocess.run(
-    ["git", "config", "user.email", "github-actions@users.noreply.github.com"],
+    ["git", "config", "user.email", "github-actions[bot]@users.noreply.github.com"],
     check=True,
 )
 subprocess.run(["git", "add", str(settings.input_changelog_file)], check=True)
