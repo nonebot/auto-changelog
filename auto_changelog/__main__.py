@@ -11,8 +11,8 @@ from pydantic import BaseModel, SecretStr, BaseSettings
 class Settings(BaseSettings):
     input_changelog_file: Path = Path("CHANGELOG.md")
     input_latest_changes_position: str = "# Changelog\n\n"
-    input_latest_changes_title: str = "## Latest changes"
-    input_replace_regex: str = r"(?<=## Latest Changes\n)[\s\S]*(?=\n## )"
+    input_latest_changes_title: str = "## Latest Changes"
+    input_replace_regex: str = r"(?<=## Latest Changes\n)[\s\S]*?(?=\n## )"
     input_changelog_body: Optional[str] = None
     input_archive_regex: str = r"(?<=## )Latest Changes(?=\n)"
     input_archive_title: Optional[str] = None
