@@ -10,13 +10,13 @@ jobs:
       - uses: actions/checkout@v2
         with:
           ref: master
-      
+
       - name: Setup Python environment
         uses: ./.github/actions/setup-python
 
       - run: echo "TAG_NAME=v$(poetry version -s)" >> $GITHUB_ENV
 
-      - uses: nonebot/auto-changelog@master
+      - uses: duckmarket-dev/auto-changelog@master
         with:
           archive_title: ${{ env.TAG_NAME }}
 

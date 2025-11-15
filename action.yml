@@ -1,6 +1,6 @@
-name: NoneBot Auto Changelog
+name: duckmarket-dev Auto Changelog
 author: yanyongyu <yyy@nonebot.dev>
-description: nonebot auto changelog
+description: duckmarket-dev auto changelog
 inputs:
   changelog_file:
     description: The changelog file to update

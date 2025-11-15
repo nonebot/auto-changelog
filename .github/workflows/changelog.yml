@@ -19,6 +19,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - uses: nonebot/auto-changelog@master
+      - uses: duckmarket-dev/auto-changelog@master
         with:
           changelog_body: ${{ steps.release-drafter.outputs.body }}
